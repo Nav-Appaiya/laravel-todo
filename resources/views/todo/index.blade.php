@@ -43,24 +43,22 @@
         @endforeach
     </table>
 
-
-    <h2>Andere players:</h2>
+    <br>
+    <h2>Andere gebruikers en hun Todos:</h2>
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
-            <th>Title</th>
-            <th width="280px">Action</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th width="280px">Todos</th>
         </tr>
         @foreach ($users as $user)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
                 <td>
-                    <form action="" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                   {{ count($user->todos) }}
                 </td>
             </tr>
         @endforeach

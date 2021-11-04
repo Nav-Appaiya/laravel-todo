@@ -13,8 +13,12 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Titel:</strong>
-                {{ $todo->title }}
+                <br>
+                <strong>Titel: </strong>{{ $todo->title }}<br>
+                <strong>Gebruiker: </strong>{{ $todo->user->name }}<br>
+                <strong>Gebruiker email:</strong> {{ $todo->user->email }}<br>
+                <strong>Aangemaakt: </strong>{{ $todo->created_at }}<br>
+
             </div>
         </div>
 
