@@ -19,7 +19,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todo = Todo::latest()->paginate(5);
+        // Retrieve the todos through the user
+        $todo = Auth()->user()->todos;
         $users = User::all();
 
         return view('todo.index',compact('todo','users'))
@@ -103,7 +104,8 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
-        dispatch(new SendEmailJob($todo->only(['id','name','email'])));
+        dispatch(new SendEmailJob($todo->only(['user_id'])));
+
         $todo->delete();
         return redirect()->route('todo.index')
             ->with('success','Todo successvol verwijderd');

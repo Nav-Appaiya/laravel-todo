@@ -28,7 +28,6 @@ class SendEmailJob implements ShouldQueue
      */
     public function __construct($todo)
     {
-        dd($todo);
         $this->todo = $todo;
     }
 

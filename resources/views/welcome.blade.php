@@ -52,7 +52,7 @@
                         <div class="flex items-center ">
                             Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                         </div>
-                        <div>To test this <a href="{{ route('login') }}"><u>login</u></a> with demo@demo.nl / demo,  or <a
+                        <div>To test this <a href="{{ route('login') }}"><u>login</u></a> with demo@todo-app.local / demodemo,  or <a
                                     href="{{route('register')}}"><u>register</u></a> </div>
                     </div>
                 </div>
