@@ -31,6 +31,7 @@ password: demodemo
 4. Run the migration: ``php artisan migrate``
 5. Run additional seeding: ``php artisan db:seed``
 6. Serve your app and visit your local app-url: ``php artisan serve``
+
 ## Routes
 | URL  | Function |  
 | ------------- | ------------- |  
@@ -39,11 +40,3 @@ password: demodemo
 | /todo  | Overview of your todos and other users |  
 | /todo/create  | Create a todo  |  
 | /todo/{todo_id}  | View a todo  |  
-
-
-## commands used and other snippets
-
-php artisan make:migration create_todo_table --create=todo  
-php artisan make:controller TodoController --resource --model=Todo
-php artisan db:seed
-php artisan queue:table
