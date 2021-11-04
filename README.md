@@ -12,7 +12,7 @@ password: demodemo
 - Adding deletion emails to the Job Queues (configured with database to see the jobs)
 
 ### Features that didn't make it into this:
-- Retaining the deleted model (wanted to use softdeletes)
+- Removing the childs of a deleted model (wanted to use softdeletes, but ended up just adding a job with email to the queue)
 - Deletion through relationship (Deleting user would delete their todos)
 - Unit tests
 
@@ -41,7 +41,9 @@ password: demodemo
 | /todo/{todo_id}  | View a todo  |  
 
 
-## commands
+## commands used and other snippets
 
 php artisan make:migration create_todo_table --create=todo  
 php artisan make:controller TodoController --resource --model=Todo
+php artisan db:seed
+php artisan queue:table

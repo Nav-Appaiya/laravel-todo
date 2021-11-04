@@ -104,9 +104,10 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
+        // On todo delete, schedule a job
         dispatch(new SendEmailJob($todo));
 
-
+        $todo->delete();
         return redirect()->route('todo.index')
             ->with('success','Todo successvol verwijderd');
     }
