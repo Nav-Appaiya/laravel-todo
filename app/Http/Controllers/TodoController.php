@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailJob;
+use App\Mail\DeleteMail;
 use App\Models\Todo;
+use App\Models\User;
+//use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TodoController extends Controller
 {
@@ -15,7 +20,9 @@ class TodoController extends Controller
     public function index()
     {
         $todo = Todo::latest()->paginate(5);
-        return view('todo.index',compact('todo'))
+        $users = User::all();
+
+        return view('todo.index',compact('todo','users'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -42,6 +49,7 @@ class TodoController extends Controller
         ]);
 
         Todo::create($request->all());
+
         return redirect()->route('todo.index')
             ->with('success','Todo successvol aangemaakt.');
     }
@@ -55,7 +63,6 @@ class TodoController extends Controller
     public function show(Todo $todo)
     {
         return view('todo.show',compact('todo'));
-
     }
 
     /**
@@ -79,8 +86,10 @@ class TodoController extends Controller
     public function update(Request $request, Todo $todo)
     {
         $request->validate([
-            'title' => 'required'
+            'title' => 'required',
+            'user_id' => 'required'
         ]);
+
         $todo->update($request->all());
         return redirect()->route('todo.index')
             ->with('success','Todo sucessvol bijgewerkt');
@@ -94,6 +103,7 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
+        dispatch(new SendEmailJob($todo->only(['id','name','email'])));
         $todo->delete();
         return redirect()->route('todo.index')
             ->with('success','Todo successvol verwijderd');

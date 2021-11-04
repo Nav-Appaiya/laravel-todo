@@ -1,9 +1,18 @@
-## Radency App in Laravel
+## Todo App
+
+Features:
+- Models:
+-
+
+
 
 Maak een simpele lijstweergave, create, edit en delete flow voor een fictief model. Hiervoor hoef je geen aandacht te besteden aan de frontend styling. 1 form veld is genoeg. Na het deleten van deze en hypothetisch andere models zou je de site admin een mail willen sturen hierover. Zet deze actie tm de Mail class zover mogelijk klaar. De mail zou in de achtergrond moeten draaien en dan dus nog gegevens nodig kunnen hebben van het eerder verwijderde item. Maak tot slot voor de vorm een 2e fictief model als one to many child van de 1e model. Deze mogen uiteindelijk mee verwijderd worden als ze zouden bestaan. Unit tests inrichten naar eigen inzicht.
 
-- Model Todo & Model User
-- Mail
+- 2 Models: User & Todo
+-
+- User moet geregistreerd en ingelogd zijn om todo te kunnen plaatsen of te verwijderen (Laravel Breeze)
+-
+
 
 ### setup
 

@@ -5,9 +5,6 @@
             <div class="pull-left">
                 <h2>Todo bewerken</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('todo.index') }}"> Terug</a>
-            </div>
         </div>
     </div>
     @if ($errors->any())
@@ -24,16 +21,24 @@
         @csrf
         @method('PUT')
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="form-group">
-                    <strong>Titel:</strong>
-                    <input type="text" name="title" value="{{ $todo->name }}" class="form-control" placeholder="title">
+                    <input type="text" name="title" value="{{ $todo->title }}" class="form-control">
                 </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success mt-3">Opslaan</button>
+                </div>
+
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Opslaan</button>
+            <div class="pt-4 col-md-9">
+
             </div>
         </div>
+
     </form>
+    <br>
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{ route('todo.index') }}"> Terug</a>
+    </div>
 @endsection

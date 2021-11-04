@@ -4,19 +4,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Todo extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $table = 'todo';
+    protected $fillable = ['title','user_id'];
 
-    protected $fillable = ['title'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+    public function delete()
+    {
+        DB::transaction(function(){
+
+        });
+    }
+
+
 
 
 }

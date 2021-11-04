@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-Route::resource('todo', \App\Http\Controllers\TodoController::class);
+
+// Resource todo routes
+Route::resource('todo', \App\Http\Controllers\TodoController::class)->middleware(['auth']);
+
 
 require __DIR__.'/auth.php';
