@@ -104,9 +104,9 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
-        dispatch(new SendEmailJob($todo->only(['user_id'])));
+        dispatch(new SendEmailJob($todo));
 
-        $todo->delete();
+
         return redirect()->route('todo.index')
             ->with('success','Todo successvol verwijderd');
     }

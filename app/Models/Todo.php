@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 class Todo extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $table = 'todo';
     protected $fillable = ['title','user_id'];
@@ -21,15 +20,4 @@ class Todo extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function delete()
-    {
-        DB::transaction(function(){
-
-        });
-    }
-
-
-
-
 }

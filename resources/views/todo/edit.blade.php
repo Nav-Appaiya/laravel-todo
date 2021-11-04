@@ -24,6 +24,7 @@
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="form-group">
                     <input type="text" name="title" value="{{ $todo->title }}" class="form-control">
+                    <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success mt-3">Opslaan</button>

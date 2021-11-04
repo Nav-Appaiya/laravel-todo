@@ -26,7 +26,7 @@ class SendEmailJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($todo)
+    public function __construct(Todo $todo)
     {
         $this->todo = $todo;
     }
@@ -39,6 +39,6 @@ class SendEmailJob implements ShouldQueue
     public function handle()
     {
         $email = new DeleteMail($this->todo);
-        Mail::to($this->todo->email)->send($email);
+        Mail::to($this->todo->user->email)->send($email);
     }
 }

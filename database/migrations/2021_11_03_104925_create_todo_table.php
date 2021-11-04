@@ -18,7 +18,7 @@ class CreateTodoTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->timestamps();
-            $table->softDeletes();
+//            $table->softDeletes(); not in use for now
         });
     }
 
