@@ -1,5 +1,6 @@
 
 ## Todo App with Laravel 8
+This my test-drive with Laravel 8, used Laravel Breeze (Auth) with Tailwind for the frontend. 
 
 Demo: https://phplaravel-664318-2249917.cloudwaysapps.com/  
 username: demo@todo-app.local  
